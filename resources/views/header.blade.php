@@ -25,10 +25,11 @@
             <div class="pull-right beta-components space-left ov">
                 <div class="space10">&nbsp;</div>
                 <div class="beta-comp">
-                    <form role="search" method="get" id="searchform" action="/">
-                        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
-                        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+                    <form action="{{ route('search') }}" method="GET">
+                        <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." value="{{ request('search') }}" required>
+                        <button type="submit">Tìm kiếm</button>
                     </form>
+
                 </div>
 
                 <div class="beta-comp">
@@ -91,13 +92,13 @@
             <nav class="main-menu">
                 <ul class="l-inline ov">
                     <li><a href="/trangchu">Trang chủ</a></li>
-                    <li><a href="/type/1"> Loại sản phẩm</a>						
-                        <ul class="sub-menu">						
-                            @foreach($categories as $loai)						
-                                <li><a href="/type/{{$loai->id}}">{{$loai->name}}</a></li>						
-                            @endforeach						
-                        </ul>						
-                    </li>						
+                    <li><a href="/type/1"> Loại sản phẩm</a>
+                        <ul class="sub-menu">
+                            @foreach($categories as $loai)
+                            <li><a href="/type/{{$loai->id}}">{{$loai->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
                     <li><a href="/aboutus">Giới thiệu</a></li>
                     <li><a href="/contact">Liên hệ</a></li>
                 </ul>
